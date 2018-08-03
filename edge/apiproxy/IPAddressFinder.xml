@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="IPAddressFinder">
+    <Basepaths>/ipaddressfinder</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1528221147272</CreatedAt>
+    <CreatedBy>smitarani.teotia@gmail.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>IPAddressFinder</DisplayName>
+    <LastModifiedAt>1531928112445</LastModifiedAt>
+    <LastModifiedBy>smitarani.teotia@gmail.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:0de06628931b3a286544f2048aa2e9bd916d37ebbf8cfb9d0abeb73b915910ccb3c37757f730fedac7ac355ecfde015ff53e773f96ffabea640e43eaf189071f</ManifestVersion>
+    <Policies>
+        <Policy>Spike-Arrest-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
