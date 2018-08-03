@@ -4,17 +4,18 @@ pipeline {
  	stages {
  	    stage('Clean') {
  	        steps {
-				    
+				  dir('edge') {
+                 
   
  	            bat "mvn clean"
- 	       			}
+ 	       		 }
  	    	
-
+            }
 		}
  	 
  	    stage('Build proxy bundle') {
  	        steps {
-				  
+				    dir('edge') {
 
 					   withCredentials([usernamePassword(credentialsId: "edge-cred",
                                 passwordVariable: 'apigee_pwd',
@@ -23,9 +24,9 @@ pipeline {
  	            bat "mvn package -Ptest -Denv=${params.apigee_env} -Dorg=${params.apigee_org}"+
                                     " -Dusername=${apigee_user} -Dpassword=${apigee_pwd}"
  	 
- 	
+                                }
             	  
- 	    	}
+ 	    	        }
 
 		}
 
@@ -33,7 +34,7 @@ pipeline {
 
 		stage('Pre-Deployment Configuration ') {
             steps {
-                
+                    dir('edge') {
 
                     println "Predeployment of Caches "
                     withCredentials([usernamePassword(credentialsId: "edge-cred",
@@ -61,13 +62,18 @@ pipeline {
                                     "    -Dusername=${apigee_user} " +
                                     "    -Dpassword=${apigee_pwd}"
                         }
+                        }
+                        }
+                
                     }
                 }
-                
-            }
+
+
         }
 		 stage('Deploy proxy bundle') {
                 steps {
+
+                       dir('edge') {
                     
                         withCredentials([usernamePassword(credentialsId: "edge-cred",
                                 passwordVariable: 'apigee_pwd',
@@ -78,6 +84,6 @@ pipeline {
                     }
                 
             }
- 	 
+         }
  	}
 }
